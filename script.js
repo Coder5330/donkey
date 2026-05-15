@@ -384,13 +384,16 @@ function checkDie() {
         }
     });
 }
+document.addEventListener("keydown", (e) => {
+    keys[e.key] = true;
+    pressed.push(e.key);
+
+    while (pressed.length > 5) {
+        pressed.shift();
+    }
+});
 
 function update() {
-    for (let key in keys) {
-        if (keys[key]) {
-            pressed.push(key);
-        }
-    }
     while (pressed.length > 5) {
         pressed.shift()
     }
