@@ -394,8 +394,8 @@ function randint(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-let minSpawn = 200;
-let maxSpawn = 16000;
+let minSpawn = 50;
+let maxSpawn = 4000;
 
 function scheduleBarrel() {
   setTimeout(() => {
