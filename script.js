@@ -101,6 +101,9 @@ function getPlatformSurfaceY(platform, x) {
     return platform.slope ? getSlopeY(platform, x) : platform.y;
 }
 
+let pressed = [];
+let cheat = false;
+
 function generateLadders() {
     const result = [];
     const ladderWidth = 20;
@@ -366,6 +369,9 @@ function isOnLadder() {
 }
 
 function checkDie() {
+    if (cheat) {
+        return;
+    }
     barrels.forEach((b) => {
         if (colliderect(b, player)) {
             player.x = 120;
@@ -380,6 +386,17 @@ function checkDie() {
 }
 
 function update() {
+    for (let key in keys) {
+        if (keys[key]) {
+            pressed.push(key);
+        }
+    }
+    while (pressed.length > 5) {
+        pressed.shift()
+    }
+    if (pressed[4] == "c" && pressed[3] == "h" && pressed[2] == "e" && pressed[1] == "a" && pressed[0] == "t") {
+        cheat = !cheat;
+    }
     checkDie();
     isOnLadder();
     move();
