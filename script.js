@@ -394,8 +394,15 @@ function update() {
     while (pressed.length > 5) {
         pressed.shift()
     }
-    if (pressed[4] == "c" && pressed[3] == "h" && pressed[2] == "e" && pressed[1] == "a" && pressed[0] == "t") {
+    if (
+        pressed[0] == "c" &&
+        pressed[1] == "h" &&
+        pressed[2] == "e" &&
+        pressed[3] == "a" &&
+        pressed[4] == "t"
+    ) {
         cheat = !cheat;
+        pressed = [];
     }
     checkDie();
     isOnLadder();
